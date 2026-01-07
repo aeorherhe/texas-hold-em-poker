@@ -8,14 +8,17 @@ class Card():
     
     @classmethod
     def create_standard_52_cards(cls):
-        cards = []
-
-        for suit in cls.SUITS:
-            for rank in cls.RANKS:
-                cards.append(1)
-
-
-        return cards
+        return [
+            cls(rank=rank, suit=suit)
+            for suit in cls.SUITS
+            for rank in cls.RANKS
+        ]
+    
+        # cards = []
+        # for suit in cls.SUITS:
+        #     for rank in cls.RANKS:
+        #         cards.append(cls(rank=rank, suit=suit))
+        # return cards
 
     def __init__(self, rank, suit):
         if rank not in self.RANKS:
@@ -33,5 +36,10 @@ class Card():
     def __repr__(self):
         return f"Card('{self.rank}', '{self.suit}')"
     
-    # def create_standard_52_cards(self):
-    #     pass
+    def __eq__(self, value):
+        if not isinstance(value, Card):
+            return NotImplemented
+        return self.rank == value.rank and self.suit == value.suit
+    
+    
+

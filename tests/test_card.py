@@ -53,3 +53,8 @@ class CardTest(unittest.TestCase):
             Card(rank='Ace', suit="Diamonds")
         )
     
+    def test_figures_out_if_two_cards_are_equal(self):
+        self.assertEqual(
+            Card(rank='2', suit='Hearts'),
+            Card(rank='2', suit='Hearts')
+        )
