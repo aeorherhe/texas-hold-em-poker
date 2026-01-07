@@ -40,3 +40,16 @@ class CardTest(unittest.TestCase):
     def test_card_only_allows_for_valid_suit(self):
         with self.assertRaises(ValueError):
             Card(rank = "2", suit = "Dots")
+
+    def test_can_create_standard_52_cards(self):
+        card = Card.create_standard_52_cards()
+        self.assertEqual(len(card), 52)
+        self.assertEqual(
+            card[0],
+            Card(rank='2', suit="Hearts") 
+                         )
+        self.assertEqual(
+            card[-1],
+            Card(rank='Ace', suit="Diamonds")
+        )
+    

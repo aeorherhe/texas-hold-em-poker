@@ -5,6 +5,17 @@ class Card():
                 "2", "3", "4", "5", "6", "7", "8", "9", "10",
                 "Jack", "Queen", "King", "Ace"
             )
+    
+    @classmethod
+    def create_standard_52_cards(cls):
+        cards = []
+
+        for suit in cls.SUITS:
+            for rank in cls.RANKS:
+                cards.append(1)
+
+
+        return cards
 
     def __init__(self, rank, suit):
         if rank not in self.RANKS:
@@ -21,3 +32,6 @@ class Card():
 
     def __repr__(self):
         return f"Card('{self.rank}', '{self.suit}')"
+    
+    # def create_standard_52_cards(self):
+    #     pass
